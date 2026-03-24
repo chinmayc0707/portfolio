@@ -564,17 +564,11 @@
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 10) {
-                navbar.classList.add('shadow-sm');
-                navbar.classList.add('bg-white/95');
-                navbar.classList.add('dark:bg-black/90');
-                navbar.classList.remove('bg-white/50');
-            } else {
-                navbar.classList.remove('shadow-sm');
-                navbar.classList.remove('bg-white/95');
-                navbar.classList.remove('dark:bg-black/90');
-                navbar.classList.add('bg-white/50');
-            }
+            const isScrolled = window.scrollY > 10;
+            navbar.classList.toggle('shadow-sm', isScrolled);
+            navbar.classList.toggle('bg-white/95', isScrolled);
+            navbar.classList.toggle('dark:bg-black/90', isScrolled);
+            navbar.classList.toggle('bg-white/50', !isScrolled);
         });
 
         // Close mobile menu on link click
